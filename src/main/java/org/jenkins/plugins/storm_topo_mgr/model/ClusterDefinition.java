@@ -7,11 +7,29 @@ import org.kohsuke.stapler.DataBoundConstructor;
 
 import javax.annotation.Nonnull;
 
+/**
+ * Encapsulate the characteristics of a Storm Cluster, in particular the attributes needed to interact with the Nimbus in that cluster.
+ *
+ */
 public class ClusterDefinition extends AbstractDescribableImpl<ClusterDefinition> {
 
+    /**
+     * logical name of the cluster
+     *
+     * might use this to describe environments, like dev, load, prod, etc...
+     */
     private final String name;
+    /**
+     * fully-qualified host name or IP address of the nimbus
+     */
     private final String nimbusHost;
+    /**
+     * thrift port on the nimbus, used in jar, kill, (de)activate commands to the cluster
+     */
     private final String thriftPort;
+    /**
+     * the version of Apache Storm on this cluster
+     */
     private final String version;
 
     @DataBoundConstructor
