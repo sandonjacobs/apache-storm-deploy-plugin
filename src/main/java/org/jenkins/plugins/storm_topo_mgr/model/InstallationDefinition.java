@@ -19,6 +19,8 @@ import java.util.List;
 
 /**
  * Information about a specific installation of Storm on an node in the Jenkins cluster.
+ *
+ * Forces installations to use unique names.
  */
 public class InstallationDefinition extends ToolInstallation
         implements EnvironmentSpecific<InstallationDefinition>, NodeSpecific<InstallationDefinition>, Serializable {
