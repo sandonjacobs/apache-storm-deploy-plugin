@@ -12,7 +12,6 @@ public class KillContextTest {
 
     private KillContext context = new KillContext("host.com", 9876, 8888, "junit", 9);
 
-
     @Test
     public void testFindTopologyId() throws Exception {
         String fileName = "json/topo-summary.json";
