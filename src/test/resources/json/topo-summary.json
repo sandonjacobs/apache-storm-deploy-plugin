@@ -1,0 +1,22 @@
+{
+  "topologies": [
+    {
+      "id": "junit-1-1402960825",
+      "name": "junit",
+      "status": "ACTIVE",
+      "uptime": "6m 5s",
+      "tasksTotal": 28,
+      "workersTotal": 3,
+      "executorsTotal": 28
+    },
+    {
+      "id": "another-1-1402960825",
+      "name": "another",
+      "status": "ACTIVE",
+      "uptime": "6m 5s",
+      "tasksTotal": 28,
+      "workersTotal": 3,
+      "executorsTotal": 28
+    }
+  ]
+}
