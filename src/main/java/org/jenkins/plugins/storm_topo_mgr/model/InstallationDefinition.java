@@ -60,6 +60,8 @@ public class InstallationDefinition extends ToolInstallation
     @Extension
     public static class DescriptorImpl extends ToolDescriptor<InstallationDefinition> {
 
+        // TODO Add FormValidation methods here for host, port, and version...
+
         @Nonnull
         @Override
         public String getDisplayName() {

@@ -3,7 +3,6 @@ package org.jenkins.plugins.storm_topo_mgr;
 import hudson.Extension;
 import hudson.init.InitMilestone;
 import hudson.init.Initializer;
-import hudson.model.Descriptor;
 import jenkins.model.GlobalConfiguration;
 import net.sf.json.JSONObject;
 import org.jenkins.plugins.storm_topo_mgr.model.ClusterDefinition;
