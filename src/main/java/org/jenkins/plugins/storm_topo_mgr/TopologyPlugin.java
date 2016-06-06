@@ -17,6 +17,8 @@ public class TopologyPlugin extends Builder {
     @Override
     public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener) throws InterruptedException, IOException {
         System.out.println("stop here");
+
+        // TODO perform something here...
         return super.perform(build, launcher, listener);
     }
 
