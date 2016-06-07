@@ -1,5 +1,7 @@
 # The Storm Deployinator
 
+Please consider this the anti-pattern, brute-force, sysadmin way of doing things. If you enjoy this and think it's the way to do things, you are NEVER allowed to use the term DevOps to refer to your company or mindset...
+
 ```bash
 !/usr/bin/env python -u
     
