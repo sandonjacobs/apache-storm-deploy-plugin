@@ -16,6 +16,7 @@ import org.kohsuke.stapler.DataBoundSetter;
 import javax.annotation.Nonnull;
 import java.io.IOException;
 
+@SuppressWarnings("unused")
 public class TopologyPlugin extends Builder {
 
     private StormCommand action = DescriptorImpl.action;
@@ -91,14 +92,11 @@ public class TopologyPlugin extends Builder {
             return "Manage Storm Topology";
         }
 
+        @SuppressWarnings("unused")
         public ListBoxModel doFillActionItems() { return StormCommand.getFillItems(); }
 
         @SuppressWarnings("unused")
-        public ListBoxModel doFillClusterDefinitions() {
-            return fillClusterDefinitions();
-        }
-
-        public static ListBoxModel fillClusterDefinitions() {
+        public ListBoxModel doFillClusterDefinitionItems() {
             ListBoxModel items = new ListBoxModel();
             items.add("");
             for (ClusterDefinition c : TopoMgrGlobalConfig.get().getClusterDefinitions()) {
