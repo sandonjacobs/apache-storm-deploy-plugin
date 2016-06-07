@@ -1,10 +1,12 @@
 package org.jenkins.plugins.storm_topo_mgr.command;
 
+import hudson.util.ListBoxModel;
+
 import java.text.MessageFormat;
 
 public enum StormCommand {
 
-    JAR("jar"), KILL("kill");
+    DEPLOY("deploy"), KILL("kill");
 
     private String value;
 
@@ -27,5 +29,13 @@ public enum StormCommand {
                 return s;
         }
         throw new IllegalArgumentException(MessageFormat.format("{0} is not valid for type StormCommand", value));
+    }
+
+    public static ListBoxModel getFillItems() {
+        ListBoxModel items = new ListBoxModel();
+        for (StormCommand s : values()) {
+            items.add(s.name());
+        }
+        return items;
     }
 }

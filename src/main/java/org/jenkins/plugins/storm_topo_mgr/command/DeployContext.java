@@ -8,7 +8,7 @@ public class DeployContext extends CommandContext {
     private final String cliOptions;
 
     public DeployContext(String host, Integer port, String className, String options) {
-        super(host, port, StormCommand.JAR);
+        super(host, port, StormCommand.DEPLOY);
         this.topologyClassName = className;
         this.cliOptions = options;
     }

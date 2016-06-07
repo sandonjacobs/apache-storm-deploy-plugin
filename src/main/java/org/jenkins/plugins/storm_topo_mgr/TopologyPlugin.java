@@ -8,6 +8,7 @@ import hudson.model.BuildListener;
 import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.Builder;
 import hudson.util.ListBoxModel;
+import org.jenkins.plugins.storm_topo_mgr.command.StormCommand;
 import org.jenkins.plugins.storm_topo_mgr.model.ClusterDefinition;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
@@ -17,17 +18,22 @@ import java.io.IOException;
 
 public class TopologyPlugin extends Builder {
 
-    private @Nonnull String action;
+    private StormCommand action = DescriptorImpl.action;
     private @Nonnull String topologyName;
     private String topologyClass;
     private @Nonnull String clusterDefinition;
 
     @SuppressWarnings("unused")
     @DataBoundConstructor
-    public TopologyPlugin(@Nonnull String action, @Nonnull String topologyName, @Nonnull String clusterDefinition) {
-        this.action = action;
+    public TopologyPlugin(@Nonnull String topologyName, @Nonnull String clusterDefinition) {
         this.topologyName = topologyName;
         this.clusterDefinition = clusterDefinition;
+    }
+
+    @SuppressWarnings("unused")
+    @DataBoundSetter
+    public void setAction(@Nonnull StormCommand action) {
+        this.action = action;
     }
 
     @SuppressWarnings("unused")
@@ -38,7 +44,7 @@ public class TopologyPlugin extends Builder {
 
     @SuppressWarnings("unused")
     @Nonnull
-    public String getAction() {
+    public StormCommand getAction() {
         return action;
     }
 
@@ -67,7 +73,10 @@ public class TopologyPlugin extends Builder {
 
     @Extension
     public static final class DescriptorImpl extends BuildStepDescriptor<Builder> {
-         public DescriptorImpl() {
+
+        public static final StormCommand action = StormCommand.DEPLOY;
+
+        public DescriptorImpl() {
              load();
          }
 
@@ -81,6 +90,8 @@ public class TopologyPlugin extends Builder {
         public String getDisplayName() {
             return "Manage Storm Topology";
         }
+
+        public ListBoxModel doFillActionItems() { return StormCommand.getFillItems(); }
 
         @SuppressWarnings("unused")
         public ListBoxModel doFillClusterDefinitions() {
